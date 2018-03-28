@@ -21,15 +21,15 @@ app.use(function(req, res, next) {
 
 
 // Tvshows router/controller
-const tvshowsRouter = require('./routes/tvshows');
-app.use('/tvshows', tvshowsRouter);
+// const tvshowsRouter = require('./routes/tvshows');
+// app.use('/tvshows', tvshowsRouter);
 
 
-// app.get('/', (req, res) => {
-//   Tvshow.find()
-//     .then(tvshows => res.json(tvshows))
-//     .catch(error => res.json({ error }))
-// });
+app.get('/', (req, res) => {
+  Tvshow.find()
+    .then(tvshows => res.json(tvshows))
+    .catch(error => res.json({ error }))
+});
 
 // app.post('/', (req,res) => {
 //     .then((tvshow) => {
