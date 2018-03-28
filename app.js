@@ -24,14 +24,11 @@ app.use('/tvshows', tvshowsRouter);
 
 app.get('/', (req, res) => {
   Tvshow.find()
-    .then((tvshows) => {
-      res.status(200) => .json(tvshows).end()
-    })
+    .then(tvshows => res.json(tvshows))
     .catch(error => res.json({ error }))
 });
 
-// app.post('/',(req,res) => {
-//   Tvshow.create(req.body)
+// app.post('/', (req,res) => {
 //     .then((tvshow) => {
 //       res.status(200).json(tvshow).end();
 //     })
