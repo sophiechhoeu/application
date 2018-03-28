@@ -9,6 +9,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(require('express-session')(
+  { secret: 'secret', resave: false, saveUninitialized: false }
+));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -22,11 +25,11 @@ const tvshowsRouter = require('./routes/tvshows');
 app.use('/tvshows', tvshowsRouter);
 
 
-app.get('/', (req, res) => {
-  Tvshow.find()
-    .then(tvshows => res.json(tvshows))
-    .catch(error => res.json({ error }))
-});
+// app.get('/', (req, res) => {
+//   Tvshow.find()
+//     .then(tvshows => res.json(tvshows))
+//     .catch(error => res.json({ error }))
+// });
 
 // app.post('/', (req,res) => {
 //     .then((tvshow) => {

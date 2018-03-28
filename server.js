@@ -12,5 +12,4 @@ app.listen(port, () => {
 
 app.use(function(req, res) {
   res.status(400).send({'error':'Could not decode request: JSON parsing failed'})
-  res.status(200).send(req.body)
 });
