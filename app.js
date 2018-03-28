@@ -24,7 +24,9 @@ app.use('/tvshows', tvshowsRouter);
 
 app.get('/', (req, res) => {
   Tvshow.find()
-    .then(tvshows => res.status(200) => res.json(tvshows))
+    .then((tvshows) => {
+      res.status(200) => .json(tvshows).end()
+    })
     .catch(error => res.json({ error }))
 });
 
